@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>About Mercedes</title>
   <link rel="stylesheet" href="style.css">
 </head>
@@ -23,7 +23,7 @@
       <button onclick="sendMessage()">Send</button>
     </div>
 
-    <!-- NLP -->
+    <!-- NLP + TTS -->
     <div class="max-w-4xl mx-auto">
       <h2 class="text-2xl mb-4">Text Analysis (NLP)</h2>
       <textarea id="nlp-text" rows="5" placeholder="Paste text for analysis..."></textarea>
@@ -31,6 +31,7 @@
         <button onclick="analyzeText()">Analyze</button>
         <button onclick="speakText()">Speak</button>
       </div>
+      <div id="nlp-result" style="margin-top: 1em; font-weight: 500;"></div>
     </div>
   </main>
 
@@ -38,6 +39,7 @@
   <script src="nav.js"></script>
 
   <script>
+    // Chatbot logic
     const chatWindow = document.getElementById("chat-window");
 
     function sendMessage() {
@@ -68,7 +70,37 @@
       chatWindow.scrollTop = chatWindow.scrollHeight;
     }
 
+    // Text-to-Speech
     function speakText() {
       const text = document.getElementById("nlp-text").value.trim();
       if (!text) return;
-      const utterance = new SpeechSynthesisUtterance(text[43dcd9a7-70db-4a1f-b0ae-981daa162054](https://github.com/lzh-yi/Web-Fork-/tree/024b3e55587afdf9f05a677613a75f24e3d1803e/03-CSS%E8%BF%9B%E9%98%B6%2F04-%E5%A6%82%E4%BD%95%E8%AE%A9%E4%B8%80%E4%B8%AA%E5%85%83%E7%B4%A0%E6%B0%B4%E5%B9%B3%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD%EF%BC%9F.md?citationMarker=43dcd9a7-70db-4a1f-b0ae-981daa162054 "1")[43dcd9a7-70db-4a1f-b0ae-981daa162054](https://github.com/McLovinCSUN/Comp484/tree/13bd0291ab301e41b334e03352025b1f8f14160e/Lab2%2Findex.php?citationMarker=43dcd9a7-70db-4a1f-b0ae-981daa162054 "2")[43dcd9a7-70db-4a1f-b0ae-981daa162054](https://github.com/MorphSight/floating-bayou-41450/tree/e9137754a9c3f4918fbbecd401d3da0b7fc5d0bb/GameProject%2F_View%2FloginForm.php?citationMarker=43dcd9a7-70db-4a1f-b0ae-981daa162054 "3")[43dcd9a7-70db-4a1f-b0ae-981daa162054](https://github.com/watchping/vue-course/tree/6a60dc019287a13859793f1ec7fef84dc41aa2b9/temp.md?citationMarker=43dcd9a7-70db-4a1f-b0ae-981daa162054 "4")
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.lang = "en-US";
+      speechSynthesis.speak(utterance);
+    }
+
+    // Language Analysis
+    function analyzeText() {
+      const text = document.getElementById("nlp-text").value.trim();
+      if (!text) return;
+
+      const wordCount = text.split(/\s+/).filter(Boolean).length;
+      const sentenceCount = text.split(/[.!?]+/).filter(Boolean).length;
+
+      const positiveWords = ["great", "excellent", "amazing", "love", "fantastic", "wonderful"];
+      const negativeWords = ["bad", "poor", "hate", "terrible", "worst", "awful"];
+      let sentiment = "Neutral";
+
+      const lowerText = text.toLowerCase();
+      const positives = positiveWords.filter(word => lowerText.includes(word)).length;
+      const negatives = negativeWords.filter(word => lowerText.includes(word)).length;
+
+      if (positives > negatives) sentiment = "Positive";
+      else if (negatives > positives) sentiment = "Negative";
+
+      document.getElementById("nlp-result").innerText =
+        `Words: ${wordCount} | Sentences: ${sentenceCount} | Sentiment: ${sentiment}`;
+    }
+  </script>
+</body>
+</html>
