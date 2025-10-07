@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Mercedes</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header id="header"></header>
+
+  <main class="container mx-auto px-6 py-20">
+    <h1 class="text-4xl text-center mb-6">About Mercedes Feedback & Booking</h1>
+    <p class="text-center mb-12">
+      Mercedes-Benz is a global leader in luxury vehicles. This platform allows customers to book test drives, leave feedback, and interact with AI-powered tools.
+    </p>
+
+    <!-- Chatbot -->
+    <div class="max-w-4xl mx-auto mb-10">
+      <h2 class="text-2xl mb-4">Mercedes Virtual Assistant</h2>
+      <div id="chat-window"></div>
+      <input id="user-input" type="text" placeholder="Ask me anything..." />
+      <button onclick="sendMessage()">Send</button>
+    </div>
+
+    <!-- NLP -->
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-2xl mb-4">Text Analysis (NLP)</h2>
+      <textarea id="nlp-text" rows="5" placeholder="Paste text for analysis..."></textarea>
+      <div style="display: flex; gap: 1em; margin-top: 1em;">
+        <button onclick="analyzeText()">Analyze</button>
+        <button onclick="speakText()">Speak</button>
+      </div>
+    </div>
+  </main>
+
+  <footer id="footer"></footer>
+  <script src="nav.js"></script>
+
+  <script>
+    const chatWindow = document.getElementById("chat-window");
+
+    function sendMessage() {
+      const input = document.getElementById("user-input");
+      const userText = input.value.trim();
+      if (!userText) return;
+
+      appendMessage("You", userText);
+      input.value = "";
+
+      let botReply = "I'm here to help with Mercedes feedback and booking.";
+      if (userText.toLowerCase().includes("book")) {
+        botReply = "Sure! You can book a test drive on our Home page.";
+      } else if (userText.toLowerCase().includes("feedback")) {
+        botReply = "We value your feedback. Please share your thoughts!";
+      } else if (userText.toLowerCase().includes("hello") || userText.toLowerCase().includes("hi")) {
+        botReply = "Hello! How can I assist you today?";
+      }
+
+      setTimeout(() => appendMessage("Bot", botReply), 500);
+    }
+
+    function appendMessage(sender, text) {
+      const msg = document.createElement("div");
+      msg.className = "mb-2";
+      msg.innerHTML = `<strong>${sender}:</strong> ${text}`;
+      chatWindow.appendChild(msg);
+      chatWindow.scrollTop = chatWindow.scrollHeight;
+    }
+
+    function speakText() {
+      const text = document.getElementById("nlp-text").value.trim();
+      if (!text) return;
+      const utterance = new SpeechSynthesisUtterance(text[43dcd9a7-70db-4a1f-b0ae-981daa162054](https://github.com/lzh-yi/Web-Fork-/tree/024b3e55587afdf9f05a677613a75f24e3d1803e/03-CSS%E8%BF%9B%E9%98%B6%2F04-%E5%A6%82%E4%BD%95%E8%AE%A9%E4%B8%80%E4%B8%AA%E5%85%83%E7%B4%A0%E6%B0%B4%E5%B9%B3%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD%EF%BC%9F.md?citationMarker=43dcd9a7-70db-4a1f-b0ae-981daa162054 "1")[43dcd9a7-70db-4a1f-b0ae-981daa162054](https://github.com/McLovinCSUN/Comp484/tree/13bd0291ab301e41b334e03352025b1f8f14160e/Lab2%2Findex.php?citationMarker=43dcd9a7-70db-4a1f-b0ae-981daa162054 "2")[43dcd9a7-70db-4a1f-b0ae-981daa162054](https://github.com/MorphSight/floating-bayou-41450/tree/e9137754a9c3f4918fbbecd401d3da0b7fc5d0bb/GameProject%2F_View%2FloginForm.php?citationMarker=43dcd9a7-70db-4a1f-b0ae-981daa162054 "3")[43dcd9a7-70db-4a1f-b0ae-981daa162054](https://github.com/watchping/vue-course/tree/6a60dc019287a13859793f1ec7fef84dc41aa2b9/temp.md?citationMarker=43dcd9a7-70db-4a1f-b0ae-981daa162054 "4")
