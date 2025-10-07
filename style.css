@@ -1,0 +1,96 @@
+:root {
+  --gold-color: #CFAF6F;
+  --bg-light: #f5f5f5;
+  --card-bg: #ffffff;
+  --text-dark: #333333;
+  --text-muted: #777777;
+  --border-color: #e0e0e0;
+  --font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background-color: var(--bg-light);
+  color: var(--text-dark);
+  font-family: var(--font-family);
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2 {
+  color: var(--text-dark);
+  font-weight: 600;
+}
+
+p {
+  color: var(--text-muted);
+}
+
+input, textarea {
+  background-color: var(--card-bg);
+  color: var(--text-dark);
+  border: 1px solid var(--border-color);
+  padding: 0.75em;
+  border-radius: 6px;
+  width: 100%;
+  margin-bottom: 1em;
+  font-family: var(--font-family);
+}
+
+button {
+  background-color: var(--gold-color);
+  color: #fff;
+  padding: 0.75em 1.5em;
+  border: none;
+  border-radius: 999px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #e0c88f;
+}
+
+form {
+  background-color: var(--card-bg);
+  padding: 2em;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  border: 1px solid var(--border-color);
+}
+
+nav a {
+  color: var(--text-dark);
+  text-decoration: none;
+  margin: 0 1em;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: var(--gold-color);
+}
+
+header {
+  background-color: var(--card-bg);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+footer {
+  text-align: center;
+  color: var(--text-muted);
+  padding: 2em 0;
+  background-color: var(--card-bg);
+  border-top: 1px solid var(--border-color);
+}
+
+#chat-window {
+  background-color: var(--bg-light);
+  border: 1px solid var(--border-color);
+  color: var(--text-dark);
+  padding: 1em;
+  border-radius: 6px;
+  height: 20em;
+  overflow-y: auto;
+  font-family: var(--font-family);
+}
